@@ -10,8 +10,13 @@
  */
 package com.vito16.pingxx.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.vito16.pingxx.order.PayOrder;
+import com.vito16.pingxx.service.PayService;
 
 /**
  * @author 木鱼 muyu@yiji.com
@@ -20,13 +25,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PayController {
 
+    @Autowired
+    PayService payService;
+
     @RequestMapping("/")
     public String index(){
-        return "";
+        return "index";
     }
 
     @RequestMapping("/pay")
-    public String pay(){
-        return "";
+    @ResponseBody
+    public String pay(PayOrder order){
+        String str = payService.pay(order);
+        return str;
     }
 }
