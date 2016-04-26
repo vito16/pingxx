@@ -29,14 +29,6 @@ public class Application extends SpringBootServletInitializer {
 		return application.sources(Application.class);
 	}
 	
-	@Bean(name = "multipartResolver")
-	public CommonsMultipartResolver multipartResolver() {
-		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-		resolver.setDefaultEncoding("utf-8");
-		resolver.setMaxUploadSize(10240000);
-		return resolver;
-	}
-	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class);
 	}

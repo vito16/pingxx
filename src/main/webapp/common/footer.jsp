@@ -2,6 +2,6 @@
          pageEncoding="UTF-8" %>
 <div class="footer text-center">
     <br>
-    <p>&copy; 小小商店 2014</p>
+    <p>&copy; Ping++测试 2016</p>
 </div>
 <!-- /footer -->
