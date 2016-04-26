@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.vito16.pingxx.order.PayOrder;
 import com.vito16.pingxx.service.PayService;
@@ -23,14 +24,16 @@ import com.vito16.pingxx.service.PayService;
  * @version 2016/04/26
  */
 @Controller
+@RequestMapping("/")
 public class PayController {
 
     @Autowired
     PayService payService;
 
-    @RequestMapping("/")
-    public String index(){
-        return "index";
+    @RequestMapping
+    public ModelAndView index(){
+        ModelAndView model = new ModelAndView("index");
+        return model;
     }
 
     @RequestMapping("/pay")
