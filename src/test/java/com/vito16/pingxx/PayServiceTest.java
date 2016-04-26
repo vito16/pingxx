@@ -14,11 +14,11 @@ public class PayServiceTest {
         PayService payService = new PayService();
         PayOrder order = new PayOrder();
         order.setAmount(21);
-        order.setBody("body");
+        order.setBody("XXX.X..X.XX.=SDFJKSDJF");
         order.setChannel("alipay");
         order.setClient_ip("192.168.23.23");
-        order.setOrder_no("234123423");
-        order.setSubject("无");
+        order.setOrder_no("2341234223");
+        order.setSubject("保健品");
         payService.pay(order);
     }
 }

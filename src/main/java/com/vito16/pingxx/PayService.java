@@ -1,5 +1,6 @@
 package com.vito16.pingxx;
 
+import com.alibaba.fastjson.JSONObject;
 import com.pingplusplus.Pingpp;
 import com.pingplusplus.exception.*;
 import com.pingplusplus.model.Charge;
@@ -38,8 +39,7 @@ public class PayService {
         } catch (ChannelException e) {
             e.printStackTrace();
         }
-
-        return null;
+        return JSONObject.toJSONString(charge);
     }
 
 }
