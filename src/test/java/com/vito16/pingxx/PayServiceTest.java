@@ -19,8 +19,8 @@ public class PayServiceTest {
         order.setAmount(21);
         order.setBody("XXX.X..X.XX.=SDFJKSDJF");
         order.setChannel("alipay");
-        order.setClient_ip("192.168.23.23");
-        order.setOrder_no("2341234223");
+        order.setClientIp("192.168.23.23");
+        order.setOrderNo("2341234223");
         order.setSubject("保健品");
         payService.pay(order);
     }

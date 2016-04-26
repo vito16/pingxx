@@ -3,7 +3,8 @@ package com.vito16.pingxx.order;
 import java.io.Serializable;
 
 /**
- * Created by vito on 2016/4/26.
+ * @author 木鱼 muyu@yiji.com
+ * @version 2016/04/26
  */
 public class PayOrder  implements Serializable{
     /**
@@ -17,7 +18,7 @@ public class PayOrder  implements Serializable{
     /**
      * 客户端IP
      */
-    private String client_ip;
+    private String clientIp;
     /**
      * 商品名
      */
@@ -29,7 +30,7 @@ public class PayOrder  implements Serializable{
     /**
      * 订单号
      */
-    private String order_no;
+    private String orderNo;
     /**
      * 总金额
      */
@@ -51,12 +52,12 @@ public class PayOrder  implements Serializable{
         this.currency = currency;
     }
 
-    public String getClient_ip() {
-        return client_ip;
+    public String getClientIp() {
+        return clientIp;
     }
 
-    public void setClient_ip(String client_ip) {
-        this.client_ip = client_ip;
+    public void setClientIp(String clientIp) {
+        this.clientIp = clientIp;
     }
 
     public String getSubject() {
@@ -75,12 +76,12 @@ public class PayOrder  implements Serializable{
         this.body = body;
     }
 
-    public String getOrder_no() {
-        return order_no;
+    public String getOrderNo() {
+        return orderNo;
     }
 
-    public void setOrder_no(String order_no) {
-        this.order_no = order_no;
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
     }
 
     public Integer getAmount() {
