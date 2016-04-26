@@ -10,6 +10,8 @@
  */
 package com.vito16.pingxx.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +28,9 @@ import com.vito16.pingxx.service.PayService;
 @Controller
 @RequestMapping("/")
 public class PayController {
-	
+
+	private static final Logger logger = LoggerFactory.getLogger(PayController.class);
+
 	@Autowired
 	PayService payService;
 	
@@ -39,6 +43,10 @@ public class PayController {
 	@RequestMapping("/pay")
 	@ResponseBody
 	public String pay(PayOrder order) {
+		logger.info("order:{}",order.toString());
+		order.setOrderNo("12341234");
+		order.setClientIp("127.0.0.1");
+		order.setSuccessUrl("http://baidu.com/");
 		String str = payService.pay(order);
 		return str;
 	}

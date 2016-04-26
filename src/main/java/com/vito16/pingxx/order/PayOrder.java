@@ -35,7 +35,17 @@ public class PayOrder implements Serializable {
 	 * 总金额
 	 */
 	private Integer amount;
-	
+
+	private String successUrl;
+
+	public String getSuccessUrl() {
+		return successUrl;
+	}
+
+	public void setSuccessUrl(String successUrl) {
+		this.successUrl = successUrl;
+	}
+
 	public String getChannel() {
 		return channel;
 	}

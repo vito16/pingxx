@@ -33,6 +33,11 @@ public class PayService {
 		chargeParams.put("client_ip", order.getClientIp());
 		chargeParams.put("subject", order.getSubject());
 		chargeParams.put("body", order.getBody());
+
+		Map<String, String> extra = new HashMap<String, String>();
+		extra.put("success_url", order.getSuccessUrl());
+		chargeParams.put("extra",extra);
+
 		Charge charge = null;
 		try {
 			charge = Charge.create(chargeParams);
