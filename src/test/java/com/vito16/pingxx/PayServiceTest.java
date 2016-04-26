@@ -4,6 +4,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
+import com.vito16.pingxx.order.PayOrder;
+import com.vito16.pingxx.service.PayService;
+
 /**
  * Created by vito on 2016/4/26.
  */

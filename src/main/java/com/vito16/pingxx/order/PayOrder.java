@@ -1,4 +1,4 @@
-package com.vito16.pingxx;
+package com.vito16.pingxx.order;
 
 import java.io.Serializable;
 
