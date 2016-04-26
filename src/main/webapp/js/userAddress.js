@@ -1,5 +1,5 @@
 $(function () {
-    $("#sub-nav-address").attr("class","active");
+    $("#sub-nav-address").attr("class", "active");
     //删除用户地址
     $(".delAddresslBtn").click(function () {
         var addressId = $(this).attr("addressId");
@@ -7,7 +7,7 @@ $(function () {
             url: ctx + "/user/userAddress/delete/" + addressId,
             success: function (result) {
                 if (result == "success") {
-                    $("tr[addressId="+addressId+"]").remove();
+                    $("tr[addressId=" + addressId + "]").remove();
                     $('#delAddressSuccess').show();
                     setTimeout(function () {
                         $('#delAddressSuccess').hide('slow');
@@ -27,13 +27,13 @@ $(function () {
         var addressId = $(this).attr("addressId");
         $.ajax({
             url: ctx + "/user/userAddress/add/",
-            method:"post",
-            data:{
-                "id":$("#id").val(),
-                "address":$("#address").val(),
-                "phone":$("#phone").val(),
-                "zipcode":$("#zipcode").val(),
-                "consignee":$("#consignee").val()
+            method: "post",
+            data: {
+                "id": $("#id").val(),
+                "address": $("#address").val(),
+                "phone": $("#phone").val(),
+                "zipcode": $("#zipcode").val(),
+                "consignee": $("#consignee").val()
             },
             success: function (result) {
                 if (result == "success") {
@@ -62,7 +62,7 @@ $(function () {
         var addressId = $(this).attr("addressId");
         $.ajax({
             url: ctx + "/user/userAddress/" + addressId,
-            method:"get",
+            method: "get",
             //url: ctx + "/user/userAddress/edit/" + addressId,
             success: function (result) {
                 alert(result);

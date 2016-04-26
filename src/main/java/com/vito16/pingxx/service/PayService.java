@@ -20,34 +20,34 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PayService {
-    public String  pay(PayOrder order){
-        Pingpp.apiKey=Constants.TEST_KEY;
-        Map<String, Object> chargeParams = new HashMap<String, Object>();
-        chargeParams.put("order_no",  order.getOrderNo());
-        chargeParams.put("amount", order.getAmount());
-        Map<String, String> app = new HashMap<String, String>();
-        app.put("id", Constants.APP_KEY);
-        chargeParams.put("app",app);
-        chargeParams.put("channel",order.getChannel());
-        chargeParams.put("currency",order.getCurrency());
-        chargeParams.put("client_ip",order.getClientIp());
-        chargeParams.put("subject",order.getSubject());
-        chargeParams.put("body",order.getBody());
-        Charge charge = null;
-        try {
-             charge = Charge.create(chargeParams);
-        } catch (AuthenticationException e) {
-            e.printStackTrace();
-        } catch (InvalidRequestException e) {
-            e.printStackTrace();
-        } catch (APIConnectionException e) {
-            e.printStackTrace();
-        } catch (APIException e) {
-            e.printStackTrace();
-        } catch (ChannelException e) {
-            e.printStackTrace();
-        }
-        return JSONObject.toJSONString(charge);
-    }
-
+	public String pay(PayOrder order) {
+		Pingpp.apiKey = Constants.TEST_KEY;
+		Map<String, Object> chargeParams = new HashMap<String, Object>();
+		chargeParams.put("order_no", order.getOrderNo());
+		chargeParams.put("amount", order.getAmount());
+		Map<String, String> app = new HashMap<String, String>();
+		app.put("id", Constants.APP_KEY);
+		chargeParams.put("app", app);
+		chargeParams.put("channel", order.getChannel());
+		chargeParams.put("currency", order.getCurrency());
+		chargeParams.put("client_ip", order.getClientIp());
+		chargeParams.put("subject", order.getSubject());
+		chargeParams.put("body", order.getBody());
+		Charge charge = null;
+		try {
+			charge = Charge.create(chargeParams);
+		} catch (AuthenticationException e) {
+			e.printStackTrace();
+		} catch (InvalidRequestException e) {
+			e.printStackTrace();
+		} catch (APIConnectionException e) {
+			e.printStackTrace();
+		} catch (APIException e) {
+			e.printStackTrace();
+		} catch (ChannelException e) {
+			e.printStackTrace();
+		}
+		return JSONObject.toJSONString(charge);
+	}
+	
 }

@@ -23,19 +23,21 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
  */
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Application.class);
-    }
-    @Bean(name = "multipartResolver")
-    public CommonsMultipartResolver multipartResolver() {
-        CommonsMultipartResolver resolver=new CommonsMultipartResolver();
-        resolver.setDefaultEncoding("utf-8");
-        resolver.setMaxUploadSize(10240000);
-        return resolver;
-    }
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class);
-    }
+	
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(Application.class);
+	}
+	
+	@Bean(name = "multipartResolver")
+	public CommonsMultipartResolver multipartResolver() {
+		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+		resolver.setDefaultEncoding("utf-8");
+		resolver.setMaxUploadSize(10240000);
+		return resolver;
+	}
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class);
+	}
 }

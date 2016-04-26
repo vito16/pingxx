@@ -1,3 +1,3 @@
 $(function () {
-    $("#sub-nav-user").attr("class","active");
+    $("#sub-nav-user").attr("class", "active");
 })

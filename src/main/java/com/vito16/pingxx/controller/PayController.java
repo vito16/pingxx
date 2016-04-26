@@ -26,20 +26,20 @@ import com.vito16.pingxx.service.PayService;
 @Controller
 @RequestMapping("/")
 public class PayController {
-
-    @Autowired
-    PayService payService;
-
-    @RequestMapping
-    public ModelAndView index(){
-        ModelAndView model = new ModelAndView("index");
-        return model;
-    }
-
-    @RequestMapping("/pay")
-    @ResponseBody
-    public String pay(PayOrder order){
-        String str = payService.pay(order);
-        return str;
-    }
+	
+	@Autowired
+	PayService payService;
+	
+	@RequestMapping
+	public ModelAndView index() {
+		ModelAndView model = new ModelAndView("index");
+		return model;
+	}
+	
+	@RequestMapping("/pay")
+	@ResponseBody
+	public String pay(PayOrder order) {
+		String str = payService.pay(order);
+		return str;
+	}
 }

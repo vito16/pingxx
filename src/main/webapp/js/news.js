@@ -5,10 +5,10 @@ $(function () {
         //var addressId = $(this).attr("addressId");
         $.ajax({
             url: ctx + "/news/add/",
-            method:"post",
-            data:{
-                "content":$("#content").val(),
-                "title":$("#title").val()
+            method: "post",
+            data: {
+                "content": $("#content").val(),
+                "title": $("#title").val()
             },
             success: function (result) {
                 if (result == "success") {

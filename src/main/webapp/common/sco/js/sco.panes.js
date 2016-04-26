@@ -19,95 +19,95 @@
 
 /*jshint laxcomma:true, sub:true, browser:true, jquery:true, devel:true */
 
-;(function($, undefined) {
-	"use strict";
+;(function ($, undefined) {
+    "use strict";
 
-	var pluginName = 'scojs_panes';
+    var pluginName = 'scojs_panes';
 
-	function Panes($wrapper, options) {
-		var self = this;
+    function Panes($wrapper, options) {
+        var self = this;
 
-		this.options = $.extend({}, $[pluginName].defaults, options);
-		var transitionEnd = ($.support.transition && this.options.easing) ? $.support.transition.end : null;
-		this.$pane_wrapper = $wrapper;
-		if (this.options.easing) {
-			this.$pane_wrapper.addClass(this.options.easing);
-		}
+        this.options = $.extend({}, $[pluginName].defaults, options);
+        var transitionEnd = ($.support.transition && this.options.easing) ? $.support.transition.end : null;
+        this.$pane_wrapper = $wrapper;
+        if (this.options.easing) {
+            this.$pane_wrapper.addClass(this.options.easing);
+        }
 
-		this.$pane_wrapper.on('select', function(e, options, index) {
-			var  direction = 'left'
-				,type = 'next'
-				;
-			if (options.active > index) {
-				direction = 'right';
-				type = 'prev';
-			}
+        this.$pane_wrapper.on('select', function (e, options, index) {
+            var direction = 'left'
+                , type = 'next'
+                ;
+            if (options.active > index) {
+                direction = 'right';
+                type = 'prev';
+            }
 
-			function onEnd(e) {
-				self.$panes.eq(options.active).removeClass('active ' + direction);
-				self.options.active = index;
-				self.$panes.eq(index).removeClass([type, direction].join(' ')).addClass('active');
-			}
+            function onEnd(e) {
+                self.$panes.eq(options.active).removeClass('active ' + direction);
+                self.options.active = index;
+                self.$panes.eq(index).removeClass([type, direction].join(' ')).addClass('active');
+            }
 
-			if (transitionEnd) {
-				self.$pane_wrapper.one(transitionEnd, onEnd);
-			}
-			self.$panes.eq(index).addClass(type)[0].offsetWidth; // force reflow
-			self.$panes.eq(options.active).addClass(direction);
-			self.$panes.eq(index).addClass(direction);
-			if (!transitionEnd) {
-				onEnd();
-			}
-		});
+            if (transitionEnd) {
+                self.$pane_wrapper.one(transitionEnd, onEnd);
+            }
+            self.$panes.eq(index).addClass(type)[0].offsetWidth; // force reflow
+            self.$panes.eq(options.active).addClass(direction);
+            self.$panes.eq(index).addClass(direction);
+            if (!transitionEnd) {
+                onEnd();
+            }
+        });
 
-		this.$panes = this.$pane_wrapper.children();
+        this.$panes = this.$pane_wrapper.children();
 
-		this.$panes.eq(this.options.active).addClass('active');
-	}
+        this.$panes.eq(this.options.active).addClass('active');
+    }
 
-	$.extend(Panes.prototype, {
-		select: function(index) {
-			if (index !== this.options.active) {
-				if (typeof this.options.onBeforeSelect != 'function' || this.options.onBeforeSelect.call(this, index) !== false) {
-					this.$pane_wrapper.trigger('select', [this.options, index]);
-					return true;
-				}
-			}
-			return false;
-		}
+    $.extend(Panes.prototype, {
+        select: function (index) {
+            if (index !== this.options.active) {
+                if (typeof this.options.onBeforeSelect != 'function' || this.options.onBeforeSelect.call(this, index) !== false) {
+                    this.$pane_wrapper.trigger('select', [this.options, index]);
+                    return true;
+                }
+            }
+            return false;
+        }
 
-		,next: function() {
-			var  tab_count = this.$panes.length
-				,next
-				;
-			if (this.options.active === tab_count - 1) {
-				next = 0;
-			} else {
-				next = this.options.active + 1;
-			}
-			return this.select(next);
-		}
+        , next: function () {
+            var tab_count = this.$panes.length
+                , next
+                ;
+            if (this.options.active === tab_count - 1) {
+                next = 0;
+            } else {
+                next = this.options.active + 1;
+            }
+            return this.select(next);
+        }
 
-		,prev: function() {
-			var prev;
-			if (this.options.active === 0) {
-				prev = this.$panes.length - 1;
-			} else {
-				prev = this.options.active - 1;
-			}
-			return this.select(prev);
-		}
-	});
+        , prev: function () {
+            var prev;
+            if (this.options.active === 0) {
+                prev = this.$panes.length - 1;
+            } else {
+                prev = this.options.active - 1;
+            }
+            return this.select(prev);
+        }
+    });
 
-	$[pluginName] = function(elem, options) {
-		if (typeof elem === 'string') {
-			elem = $(elem);
-		}
-		return new Panes(elem, options);
-	};
+    $[pluginName] = function (elem, options) {
+        if (typeof elem === 'string') {
+            elem = $(elem);
+        }
+        return new Panes(elem, options);
+    };
 
-	$[pluginName].defaults = {
-		active: 0
-		,easing: ''
-	}
+    $[pluginName].defaults = {
+        active: 0
+        , easing: ''
+    }
 })(jQuery);

@@ -18,21 +18,22 @@ import com.vito16.pingxx.service.PayService;
  * @version 2016/04/26
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {Application.class})
+@ContextConfiguration(classes = { Application.class })
 public class PayServiceTest {
-    private static final Logger logger = LoggerFactory.getLogger(PayServiceTest.class);
-    @Autowired
-    PayService payService;
-    @Test
-    public void testPay(){
-        PayOrder order = new PayOrder();
-        order.setAmount(9900);
-        order.setBody("XXX.X..X.XX.=SDFJKSDJF");
-        order.setChannel("alipay");
-        order.setClientIp("192.168.23.23");
-        order.setOrderNo("2341234223");
-        order.setSubject("保健品");
-        payService.pay(order);
-        logger.info("order:{}", JSONObject.toJSONString(order));
-    }
+	private static final Logger logger = LoggerFactory.getLogger(PayServiceTest.class);
+	@Autowired
+	PayService payService;
+	
+	@Test
+	public void testPay() {
+		PayOrder order = new PayOrder();
+		order.setAmount(9900);
+		order.setBody("XXX.X..X.XX.=SDFJKSDJF");
+		order.setChannel("alipay");
+		order.setClientIp("192.168.23.23");
+		order.setOrderNo("2341234223");
+		order.setSubject("保健品");
+		payService.pay(order);
+		logger.info("order:{}", JSONObject.toJSONString(order));
+	}
 }
