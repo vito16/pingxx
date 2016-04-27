@@ -6,6 +6,7 @@ import org.junit.runners.BlockJUnit4ClassRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -18,7 +19,7 @@ import com.vito16.pingxx.service.PayService;
  * @version 2016/04/26
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { Application.class })
+@SpringApplicationConfiguration(Application.class)
 public class PayServiceTest {
 	private static final Logger logger = LoggerFactory.getLogger(PayServiceTest.class);
 	@Autowired
