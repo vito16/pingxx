@@ -20,7 +20,7 @@
         </select>
     </div>
     <div class="form-group">
-        <input type="text" value="大鹏展翅" class="form-control" id="subject" placeholder="商品名" required autofocus>
+        <input type="text" value="大鹏展" class="form-control" id="subject" placeholder="商品名" required autofocus>
     </div>
     <div class="form-group">
         <input type="text" value="木鱼测试商品" class="form-control" id="body" placeholder="商品描述" required autofocus>
