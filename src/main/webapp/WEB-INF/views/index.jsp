@@ -7,7 +7,7 @@
     <title>主页</title>
     <%@ include file="/common/meta.jsp" %>
     <%@ include file="/common/include-base-styles.jsp" %>
-    <link type="text/css" rel="stylesheet" href="${ctx}/css/index.css"/>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css"/>
 </head>
 
 <body>
@@ -20,10 +20,10 @@
         </select>
     </div>
     <div class="form-group">
-        <input type="text" value="大鹏展翅" class="form-control" id="subject" placeholder="商品名" required autofocus>
+        <input type="text" value="大鹏" class="form-control" id="subject" placeholder="商品名" required autofocus>
     </div>
     <div class="form-group">
-        <input type="text" value="木鱼测试商品" class="form-control" id="body" placeholder="商品描述" required autofocus>
+        <input type="text" value="测试商品" class="form-control" id="body" placeholder="商品描述" required autofocus>
     </div>
     <div class="form-group">
         <input type="text" value="19900" class="form-control" id="amount" placeholder="价格(分)" required autofocus>
